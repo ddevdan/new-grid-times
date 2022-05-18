@@ -35,7 +35,7 @@ const ArticleInfos = styled.div`
   grid-column: 1;
 
   align-self: center;
-  justify-self: center;
+  justify-self: start;
 `;
 
 const AuthorPic = styled.div`
