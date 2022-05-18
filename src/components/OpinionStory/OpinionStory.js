@@ -23,14 +23,14 @@ const Wrapper = styled.article`
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-flow: column;
-  @media ${QUERIES.tabletOnly} {
-    grid-auto-flow: row;
-  }
   gap: 8px;
-
   color: var(--color-gray-900);
   background: var(--color-gray-100);
   padding: 16px 0;
+
+  @media ${QUERIES.tabletOnly} {
+    grid-auto-flow: row;
+  }
 `;
 
 const ArticleInfos = styled.div`
