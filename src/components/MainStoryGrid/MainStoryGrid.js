@@ -27,7 +27,7 @@ const MainStoryGrid = () => {
 
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
-        <StoryList>
+        <StoryList option>
           {OPINION_STORIES.map((story, index) => (
             <OpinionStory key={story.id} {...story} />
           ))}
@@ -65,13 +65,15 @@ const StoryList = styled.div`
   background: var(--color-gray-300);
   gap: 1px;
   margin-top: -16px;
- 
+  grid-auto-flow: row;
 
   @media ${QUERIES.tabletOnly} {
-    grid-template-columns: repeat(auto-fill, 1fr));
+    ${(props) =>
+      props.option &&
+      `grid-template-columns: repeat(auto-fill, 1fr));
     grid-auto-flow: column;
     background: revert;
-    gap: 32px;
+    gap: 32px;`}
   }
 `;
 
