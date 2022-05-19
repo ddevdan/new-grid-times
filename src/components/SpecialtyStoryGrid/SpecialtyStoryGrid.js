@@ -35,9 +35,11 @@ const SpecialtyStoryGrid = () => {
           Sports
         </SectionTitle>
         <SportsStories>
+          <ImageList>
           {SPORTS_STORIES.map((data) => (
             <MiniStory key={data.id} {...data} />
           ))}
+          </ImageList>
         </SportsStories>
       </SportsSection>
     </Wrapper>
@@ -54,12 +56,22 @@ const MarketsSection = styled.section``;
 const MarketCards = styled.div`
   display: grid;
   width: 100%;
-  gap:16px;
+  gap: 16px;
   grid-template-columns: repeat(auto-fill, minmax(min(184px, 100%), 1fr));
 `;
 
 const SportsSection = styled.section``;
 
-const SportsStories = styled.div``;
+const SportsStories = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+`;
+
+const ImageList = styled.div`
+  display: flex;
+  gap: 16px;
+  max-width: 100%;
+  overflow: auto;
+`;
 
 export default SpecialtyStoryGrid;
