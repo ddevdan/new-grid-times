@@ -4,16 +4,22 @@ import { QUERIES } from "../../constants";
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <a href={`/story/${id}`}>
+    <AWraper href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </a>
+    </AWraper>
   );
 };
 
+const AWraper = styled.a`
+  @media ${QUERIES.tabletOnly} {
+    padding-left: 20px;
+    background: var(--color-gray-100);
+  }
+`;
 const Wrapper = styled.article`
   display: grid;
   grid-template-areas:
@@ -28,6 +34,12 @@ const Wrapper = styled.article`
     grid-template-columns: 100%;
     grid-template-areas: "image" "heading" "abstract";
     gap: 8px;
+    border-bottom: 1px solid var(--color-gray-300)
+
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    border-bottom: 1px solid var(--color-gray-300)
   }
 `;
 

@@ -44,25 +44,61 @@ const MainStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-areas:
-    "main-story"
+    "main"
     "secondary-stories"
     "opinion-stories"
     "advertisement";
+  background: var(--color-gray-300);
+
   gap: 48px;
   margin-bottom: 48px;
+  @media ${QUERIES.tabletOnly} {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 268px;
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    gap: 2px;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    grid-template-rows: 100% auto auto;
+    grid-template-columns: 1fr calc(386px + 16px) calc(273px + 16px);
+  }
 `;
 
 const MainStorySection = styled.section`
-  grid-area: main-story;
+  grid-area: main;
+  background: var(--color-gray-100);
+
+  @media ${QUERIES.tabletOnly} {
+    padding-right: 16px;
+    grid-column: 1;
+  }
+  @media ${QUERIES.desktopAndUp} {
+    padding-right: 16px;
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+  background: var(--color-gray-100);
+  @media ${QUERIES.tabletOnly} {
+    padding-left: 16px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  @media ${QUERIES.desktopAndUp} {
+    padding-left: 16px;
+    grid-column: 2;
+    grid-row: 1;
+  }
 `;
 
 const StoryList = styled.div`
   display: grid;
-  background: var(--color-gray-300);
   gap: 1px;
   margin-top: -16px;
   grid-auto-flow: row;
@@ -79,10 +115,32 @@ const StoryList = styled.div`
 
 const OpinionSection = styled.section`
   grid-area: opinion-stories;
+  background: var(--color-gray-100);
+  @media ${QUERIES.tabletOnly} {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+  @media ${QUERIES.desktopAndUp} {
+    padding-left: 16px;
+    grid-column: 3;
+    grid-row: 1;
+  }
 `;
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+  background: var(--color-gray-100);
+  padding-top: 5px;
+  margin-top: -5px;
+  @media ${QUERIES.tabletOnly} {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+  @media ${QUERIES.desktopAndUp} {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    align-self: start;
+  }
 `;
 
 export default MainStoryGrid;
